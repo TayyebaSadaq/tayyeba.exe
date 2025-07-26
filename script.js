@@ -60,7 +60,7 @@ function animateSkillBars() {
 // Load projects from JSON configuration
 async function loadProjects() {
     try {
-        const response = await fetch('projects.json');
+        const response = await fetch('json-files/projects.json');
         const projects = await response.json();
         const projectsContainer = document.getElementById('projects-container');
         
@@ -148,10 +148,10 @@ function loadSampleProjects() {
 // Add automatic horizontal scrolling functionality for projects
 function initAutoProjectsScrolling() {
     const projectsContainer = document.getElementById('projects-container');
-    const projectsContent = document.getElementById('projects-content');
+    const projectsSection = document.getElementById('projects');
     
     // Check if scroll indicator already exists to prevent duplication
-    if (projectsContent.querySelector('.scroll-indicator')) {
+    if (projectsSection.querySelector('.scroll-indicator')) {
         return;
     }
     
@@ -175,7 +175,7 @@ function initAutoProjectsScrolling() {
     `;
     
     // Insert indicator before projects container
-    projectsContent.insertBefore(scrollIndicator, projectsContainer);
+    projectsSection.insertBefore(scrollIndicator, projectsContainer);
     
     const dots = scrollIndicator.querySelectorAll('.dot');
     let currentIndex = 0;
@@ -403,7 +403,7 @@ document.head.appendChild(style);
 // Load and display experience data
 async function loadExperience() {
     try {
-        const response = await fetch('experience.json');
+        const response = await fetch('json-files/experience.json');
         const data = await response.json();
         displayExperience(data.experiences);
     } catch (error) {
