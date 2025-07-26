@@ -355,21 +355,103 @@ body {
     from { width: 0%; }
 }
 
-/* Projects Grid */
+/* Projects Navigation */
+.projects-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--terminal-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn {
+    background: linear-gradient(45deg, var(--neon-green), var(--neon-blue));
+    color: var(--dark-bg);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-family: 'Orbitron', monospace;
+    font-weight: bold;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.nav-btn:hover:not(.disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.nav-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--border-color);
+    color: #666;
+    box-shadow: none;
+}
+
+.nav-arrow {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.nav-btn:hover:not(.disabled) .nav-arrow {
+    transform: scale(1.2);
+}
+
+.projects-counter {
+    color: var(--neon-blue);
+    font-family: 'Orbitron', monospace;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Projects Section Container */
+#projects {
+    overflow: hidden;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Projects Grid with Auto Scroll */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
     gap: 30px;
+    overflow: visible;
+    transition: transform 0.8s ease-in-out;
+    padding: 20px 0;
+    align-items: stretch;
+    width: max-content;
 }
 
 .project-card {
     background: var(--terminal-bg);
     border: 2px solid var(--border-color);
-    border-radius: 10px;
-    padding: 25px;
+    border-radius: 15px;
+    padding: 30px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: auto;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .project-card:hover {
@@ -456,6 +538,66 @@ body {
     text-shadow: 0 0 10px var(--neon-blue);
 }
 
+/* Auto-Scroll Indicator */
+.scroll-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px 25px;
+    background: var(--terminal-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--neon-blue);
+    font-family: 'Orbitron', monospace;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.scroll-icon {
+    color: var(--neon-green);
+    font-size: 1.2em;
+    animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.scroll-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot.active {
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+    border-color: var(--neon-blue);
+}
+
+.dot:hover {
+    background: var(--neon-blue);
+    transform: scale(1.2);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .glitch-text {
@@ -488,6 +630,31 @@ body {
     
     .skill-name {
         min-width: auto;
+    }
+    
+    .projects-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .nav-btn {
+        min-width: 120px;
+    }
+    
+    .project-card {
+        min-width: 280px;
+        max-width: 280px;
+    }
+    
+    .scroll-indicator {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .scroll-text {
+        font-size: 0.8em;
     }
 }
 

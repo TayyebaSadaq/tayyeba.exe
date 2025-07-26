@@ -68,6 +68,9 @@ async function loadProjects() {
             const projectCard = createProjectCard(project);
             projectsContainer.appendChild(projectCard);
         });
+        
+        // Initialize auto-scrolling after projects are loaded
+        setTimeout(() => initAutoProjectsScrolling(), 500);
     } catch (error) {
         console.error('Error loading projects:', error);
         // Fallback: show sample projects if JSON fails to load
@@ -107,25 +110,28 @@ function createProjectCard(project) {
 function loadSampleProjects() {
     const sampleProjects = [
         {
-            title: "ML Stock Predictor",
-            description: "A machine learning model that predicts stock prices using LSTM networks and technical indicators. Features real-time data processing and interactive visualizations.",
-            technologies: ["Python", "TensorFlow", "Pandas", "Plotly"],
-            github: "#",
-            demo: "#"
+            title: "Goodreads Book Scraper",
+            description: "Advanced web scraping tool for extracting book data from Goodreads. Features automated data collection, book metadata extraction, ratings analysis, and CSV export functionality.",
+            technologies: ["Python", "Web Scraping", "BeautifulSoup", "Pandas", "Data Analysis"],
+            github: "https://github.com/TayyebaSadaq/goodreads-scraper"
         },
         {
-            title: "Gaming Analytics Dashboard",
-            description: "Interactive dashboard analyzing gaming trends and player behavior using web scraping and statistical analysis. Built with modern data visualization libraries.",
-            technologies: ["Python", "Streamlit", "BeautifulSoup", "Matplotlib"],
-            github: "#",
-            notebook: "#"
+            title: "Custom Programming Language",
+            description: "Complete implementation of a custom programming language including lexical analysis, parsing, and interpretation. Features custom syntax design and execution engine.",
+            technologies: ["Python", "Compiler Design", "Language Theory", "Parser", "Interpreter"],
+            github: "https://github.com/TayyebaSadaq/Language-design-and-implementation"
         },
         {
-            title: "Book Recommendation Engine",
-            description: "Collaborative filtering system that recommends books based on reading history and preferences. Includes sentiment analysis of reviews.",
-            technologies: ["Python", "Scikit-learn", "NLP", "Flask"],
-            github: "#",
-            demo: "#"
+            title: "AI-Powered Patient Experience",
+            description: "Machine learning solution to improve patient experience in healthcare settings. Implements predictive analytics, patient sentiment analysis, and recommendation systems.",
+            technologies: ["Python", "Machine Learning", "AI", "Healthcare Analytics", "Predictive Modeling"],
+            github: "https://github.com/TayyebaSadaq/Improving-Patient-experience-using-AI"
+        },
+        {
+            title: "Diabetes Prediction with XAI",
+            description: "Comprehensive diabetes prediction system using machine learning with explainable AI techniques. Features multiple ML algorithms, model interpretability, and SHAP analysis.",
+            technologies: ["Python", "Machine Learning", "XAI", "SHAP", "Scikit-learn", "Healthcare"],
+            github: "https://github.com/TayyebaSadaq/Diabetes-Prediction-using-Machine-Learning-and-Explainable-AI-Techniques"
         }
     ];
     
@@ -133,6 +139,127 @@ function loadSampleProjects() {
     sampleProjects.forEach(project => {
         const projectCard = createProjectCard(project);
         projectsContainer.appendChild(projectCard);
+    });
+    
+    // Initialize automatic scrolling after projects are loaded
+    initAutoProjectsScrolling();
+}
+
+// Add automatic horizontal scrolling functionality for projects
+function initAutoProjectsScrolling() {
+    const projectsContainer = document.getElementById('projects-container');
+    const projectsSection = document.getElementById('projects');
+    
+    // Check if scroll indicator already exists to prevent duplication
+    if (projectsSection.querySelector('.scroll-indicator')) {
+        return;
+    }
+    
+    // Create scroll indicator
+    const scrollIndicator = document.createElement('div');
+    scrollIndicator.className = 'scroll-indicator';
+    
+    const totalProjects = projectsContainer.children.length;
+    let dotsHTML = '';
+    for (let i = 0; i < totalProjects; i++) {
+        dotsHTML += `<span class="dot ${i === 0 ? 'active' : ''}"></span>`;
+    }
+    
+    scrollIndicator.innerHTML = `
+        <div class="scroll-text">
+            <span class="scroll-icon">←→</span> PROJECTS
+        </div>
+        <div class="scroll-dots">
+            ${dotsHTML}
+        </div>
+    `;
+    
+    // Insert indicator before projects container
+    projectsSection.insertBefore(scrollIndicator, projectsContainer);
+    
+    const dots = scrollIndicator.querySelectorAll('.dot');
+    let currentIndex = 0;
+    let autoScrollInterval;
+    let isPaused = false;
+    
+    // Calculate proper scroll parameters
+    function getScrollParams() {
+        const containerWidth = projectsSection.offsetWidth;
+        const cardWidth = 350; // CSS card width
+        const gap = 30; // CSS gap
+        const totalWidth = cardWidth + gap;
+        const visibleCards = Math.floor(containerWidth / totalWidth);
+        const maxScrollIndex = Math.max(0, totalProjects - visibleCards);
+        
+        return {
+            totalWidth,
+            visibleCards,
+            maxScrollIndex
+        };
+    }
+    
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    function scrollToProject(index) {
+        const { totalWidth, maxScrollIndex } = getScrollParams();
+        const clampedIndex = Math.min(index, maxScrollIndex);
+        const scrollDistance = clampedIndex * totalWidth;
+        
+        projectsContainer.style.transform = `translateX(-${scrollDistance}px)`;
+        currentIndex = clampedIndex;
+        updateDots();
+    }
+    
+    function autoScroll() {
+        if (!isPaused) {
+            const { maxScrollIndex } = getScrollParams();
+            // Only scroll if there are cards to scroll to
+            if (maxScrollIndex > 0) {
+                currentIndex = (currentIndex + 1) % (maxScrollIndex + 1);
+            } else {
+                currentIndex = (currentIndex + 1) % totalProjects;
+            }
+            scrollToProject(currentIndex);
+        }
+    }
+    
+    // Start automatic scrolling
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(autoScroll, 4000);
+    }
+    
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+    
+    // Pause on hover
+    projectsContainer.addEventListener('mouseenter', () => {
+        isPaused = true;
+    });
+    
+    projectsContainer.addEventListener('mouseleave', () => {
+        isPaused = false;
+    });
+    
+    // Click dots to navigate
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopAutoScroll();
+            scrollToProject(index);
+            setTimeout(startAutoScroll, 2000);
+        });
+    });
+    
+    // Start the auto-scroll
+    startAutoScroll();
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        setTimeout(() => scrollToProject(currentIndex), 100);
     });
 }
 

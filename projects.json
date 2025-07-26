@@ -1,49 +1,30 @@
 [
   {
-    "title": "ML Stock Price Predictor",
-    "description": "Advanced machine learning model using LSTM neural networks to predict stock prices. Features real-time data processing, technical indicators, and interactive visualizations with 85% accuracy rate.",
-    "technologies": ["Python", "TensorFlow", "Pandas", "NumPy", "Plotly", "Alpha Vantage API"],
-    "github": "https://github.com/yourusername/ml-stock-predictor",
-    "demo": "https://your-demo-site.herokuapp.com",
-    "category": "Machine Learning"
+    "title": "Goodreads Book Scraper",
+    "description": "Advanced web scraping tool for extracting book data from Goodreads. Features automated data collection, book metadata extraction, ratings analysis, and CSV export functionality for comprehensive book analytics.",
+    "technologies": ["Python", "Web Scraping", "BeautifulSoup", "Pandas", "Data Analysis"],
+    "github": "https://github.com/TayyebaSadaq/goodreads-scraper",
+    "category": "Data Collection"
   },
   {
-    "title": "Gaming Analytics Dashboard",
-    "description": "Comprehensive gaming analytics platform that scrapes and analyzes gaming trends, player behavior, and market data. Built with interactive dashboards and real-time updates.",
-    "technologies": ["Python", "Streamlit", "BeautifulSoup", "Matplotlib", "Seaborn", "SQLite"],
-    "github": "https://github.com/yourusername/gaming-analytics",
-    "demo": "https://gaming-analytics.streamlit.app",
-    "category": "Data Analysis"
+    "title": "Custom Programming Language",
+    "description": "Complete implementation of a custom programming language including lexical analysis, parsing, and interpretation. Features custom syntax design, compiler construction principles, and execution engine.",
+    "technologies": ["Python", "Compiler Design", "Language Theory", "Parser", "Interpreter"],
+    "github": "https://github.com/TayyebaSadaq/Language-design-and-implementation",
+    "category": "Language Design"
   },
   {
-    "title": "Book Recommendation Engine",
-    "description": "Intelligent book recommendation system using collaborative filtering and content-based algorithms. Includes sentiment analysis of reviews and personalized reading suggestions.",
-    "technologies": ["Python", "Scikit-learn", "NLP", "Flask", "NLTK", "Surprise"],
-    "github": "https://github.com/yourusername/book-recommender",
-    "demo": "https://book-recommender-app.herokuapp.com",
-    "category": "Recommendation System"
+    "title": "AI-Powered Patient Experience",
+    "description": "Machine learning solution to improve patient experience in healthcare settings. Implements predictive analytics, patient sentiment analysis, and recommendation systems for enhanced healthcare delivery.",
+    "technologies": ["Python", "Machine Learning", "AI", "Healthcare Analytics", "Predictive Modeling"],
+    "github": "https://github.com/TayyebaSadaq/Improving-Patient-experience-using-AI",
+    "category": "Healthcare AI"
   },
   {
-    "title": "COVID-19 Data Visualization",
-    "description": "Interactive data visualization platform tracking COVID-19 trends with predictive modeling. Features geographic mapping, time series analysis, and vaccination tracking.",
-    "technologies": ["Python", "Plotly Dash", "Pandas", "Folium", "Prophet"],
-    "github": "https://github.com/yourusername/covid-dashboard",
-    "notebook": "https://github.com/yourusername/covid-analysis/blob/main/analysis.ipynb",
-    "category": "Data Visualization"
-  },
-  {
-    "title": "E-commerce Price Monitor",
-    "description": "Automated price monitoring system for e-commerce platforms with email alerts and trend analysis. Helps users track product prices and find the best deals.",
-    "technologies": ["Python", "Selenium", "BeautifulSoup", "MongoDB", "Celery"],
-    "github": "https://github.com/yourusername/price-monitor",
-    "category": "Web Scraping"
-  },
-  {
-    "title": "Tech News Sentiment Analyzer",
-    "description": "NLP-powered sentiment analysis tool for tech news articles. Classifies sentiment, extracts key topics, and provides trend insights for technology companies.",
-    "technologies": ["Python", "BERT", "Transformers", "Flask", "Twitter API", "NewsAPI"],
-    "github": "https://github.com/yourusername/tech-sentiment",
-    "demo": "https://tech-sentiment.herokuapp.com",
-    "category": "Natural Language Processing"
+    "title": "Diabetes Prediction with XAI",
+    "description": "Comprehensive diabetes prediction system using machine learning with explainable AI techniques. Features multiple ML algorithms, model interpretability, SHAP analysis, and clinical decision support tools.",
+    "technologies": ["Python", "Machine Learning", "XAI", "SHAP", "Scikit-learn", "Healthcare"],
+    "github": "https://github.com/TayyebaSadaq/Diabetes-Prediction-using-Machine-Learning-and-Explainable-AI-Techniques",
+    "category": "Medical ML"
   }
 ]
