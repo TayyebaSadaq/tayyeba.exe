@@ -137,10 +137,14 @@ body {
 .hero {
     text-align: center;
     padding: 60px 0;
-    background: linear-gradient(135deg, 
-        rgba(152, 251, 152, 0.15) 0%, 
-        rgba(135, 206, 235, 0.15) 50%,
-        rgba(255, 182, 193, 0.15) 100%);
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(221, 160, 221, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(152, 251, 152, 0.05) 0%, transparent 50%),
+        linear-gradient(135deg, 
+            rgba(30, 30, 46, 0.95) 0%, 
+            rgba(58, 58, 74, 0.9) 50%,
+            rgba(30, 30, 46, 0.95) 100%);
     border: 2px solid var(--neon-green);
     border-radius: 10px;
     margin-bottom: 40px;
@@ -177,9 +181,11 @@ body {
     font-weight: 900;
     color: var(--neon-pink);
     text-shadow: 
-        0 0 10px var(--neon-pink),
+        0 0 15px var(--neon-pink),
         2px 2px 0px var(--neon-blue),
-        -2px -2px 0px var(--neon-green);
+        -2px -2px 0px var(--neon-green),
+        0 0 30px rgba(255, 182, 193, 0.5),
+        2px 2px 8px rgba(0, 0, 0, 0.8);
     margin-bottom: 20px;
     animation: glitch 2s infinite;
 }
