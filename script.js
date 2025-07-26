@@ -148,10 +148,10 @@ function loadSampleProjects() {
 // Add automatic horizontal scrolling functionality for projects
 function initAutoProjectsScrolling() {
     const projectsContainer = document.getElementById('projects-container');
-    const projectsSection = document.getElementById('projects');
+    const projectsContent = document.getElementById('projects-content');
     
     // Check if scroll indicator already exists to prevent duplication
-    if (projectsSection.querySelector('.scroll-indicator')) {
+    if (projectsContent.querySelector('.scroll-indicator')) {
         return;
     }
     
@@ -175,7 +175,7 @@ function initAutoProjectsScrolling() {
     `;
     
     // Insert indicator before projects container
-    projectsSection.insertBefore(scrollIndicator, projectsContainer);
+    projectsContent.insertBefore(scrollIndicator, projectsContainer);
     
     const dots = scrollIndicator.querySelectorAll('.dot');
     let currentIndex = 0;
@@ -263,6 +263,80 @@ function initAutoProjectsScrolling() {
     });
 }
 
+// Section toggle functionality
+function initSectionToggle() {
+    const toggleableHeaders = document.querySelectorAll('.section-title.toggleable');
+    
+    toggleableHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const targetId = header.getAttribute('data-toggle');
+            const content = document.getElementById(targetId);
+            const indicator = header.querySelector('.toggle-indicator');
+            
+            if (!content) return;
+            
+            // Toggle collapsed state
+            const isCollapsed = header.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                // Expand
+                header.classList.remove('collapsed');
+                content.classList.remove('collapsed');
+                indicator.textContent = '[-]';
+                
+                // Smooth expand animation
+                content.style.maxHeight = content.scrollHeight + 'px';
+                setTimeout(() => {
+                    content.style.maxHeight = 'none';
+                }, 500);
+            } else {
+                // Collapse
+                header.classList.add('collapsed');
+                indicator.textContent = '[+]';
+                
+                // Set max-height for smooth animation
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.offsetHeight; // Force reflow
+                content.style.maxHeight = '0';
+                content.classList.add('collapsed');
+            }
+            
+            // Add visual feedback
+            header.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                header.style.transform = '';
+            }, 150);
+        });
+    });
+}
+
+// Console command to toggle all sections
+window.toggleAll = () => {
+    const toggleableHeaders = document.querySelectorAll('.section-title.toggleable');
+    const firstHeader = toggleableHeaders[0];
+    const shouldExpand = firstHeader ? firstHeader.classList.contains('collapsed') : false;
+    
+    toggleableHeaders.forEach(header => {
+        const targetId = header.getAttribute('data-toggle');
+        const content = document.getElementById(targetId);
+        const indicator = header.querySelector('.toggle-indicator');
+        
+        if (shouldExpand) {
+            header.classList.remove('collapsed');
+            content.classList.remove('collapsed');
+            indicator.textContent = '[-]';
+            content.style.maxHeight = 'none';
+        } else {
+            header.classList.add('collapsed');
+            content.classList.add('collapsed');
+            indicator.textContent = '[+]';
+            content.style.maxHeight = '0';
+        }
+    });
+    
+    console.log(shouldExpand ? 'All sections expanded!' : 'All sections collapsed!');
+}
+
 // Smooth scrolling for navigation links
 function initSmoothScrolling() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -332,6 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProjects();
     initSmoothScrolling();
     createMatrixRain();
+    initSectionToggle();
     
     // Add glitch effects after projects are loaded
     setTimeout(addGlitchEffects, 500);
@@ -359,6 +434,7 @@ Available commands:
 - projects(): Show project count
 - konami(): Activate secret mode
 - matrix(): Toggle matrix effect
+- toggleAll(): Expand/collapse all sections
 `);
 };
 
