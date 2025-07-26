@@ -1,0 +1,49 @@
+{
+  "experiences": [
+    {
+      "date": "Jul 2025 - Present",
+      "title": "SAP and Software Development Intern",
+      "company": "Honda Atlas Cars (Pakistan) Limited · Remote",
+      "description": [
+        "Completed a focused 1:1 mentorship-based internship exploring SAP systems and architecture within an enterprise environment",
+        "Gained foundational understanding of SAP modules, system structure, and internal data flow",
+        "Learned about standard and custom table usage (e.g., MARA, Z-tables) and their role in managing business processes",
+        "Observed the integration of SAP APIs with frontend tools such as ASP.NET in ongoing internal projects",
+        "Developed awareness of SAP BTP (Business Technology Platform) and modern approaches to cloud-based enterprise solutions"
+      ],
+      "skills": ["SAP Products", "SAP Implementation", "Enterprise Systems"]
+    },
+    {
+      "date": "Jul 2025 - Present",
+      "title": "Mental Health Research Intern",
+      "company": "Project: Lean on me (Non Profit) · Remote",
+      "description": [
+        "Conducting research on adolescent mental health, with focus on developmental, academic, and social impact",
+        "Collaborating with a youth-led nonprofit to develop educational content for social media and future website launch"
+      ],
+      "skills": ["Research Skills", "Content Development", "Mental Health"]
+    },
+    {
+      "date": "Jun 2025 - Present",
+      "title": "Social Media Content Creator",
+      "company": "Instagram · Remote",
+      "description": [
+        "Building a faceless Instagram brand focused on making tech approachable and lifestyle-inspired for beginners and enthusiasts",
+        "Creating weekly carousel posts and tutorials on practical topics like web scraping, VSCode extensions, project planning, and career advice",
+        "Passionate about sharing tools, tips, and guides to help others level up their skills and productivity"
+      ],
+      "skills": ["Content Creation", "Social Media", "Tech Education"]
+    },
+    {
+      "date": "Jun 2025 - Present",
+      "title": "Digital Operations Assistant",
+      "company": "Go Logistics Limited · Derby, England · Remote",
+      "description": [
+        "Supported early-stage company setup, including logo design and completing Companies House registration",
+        "Assisted with general admin tasks and provided PA-style support to founders",
+        "Currently planning the company's digital presence, including social media strategy and future website development"
+      ],
+      "skills": ["Logo Design", "Office Administration", "Project Planning"]
+    }
+  ]
+}

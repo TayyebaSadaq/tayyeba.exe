@@ -400,6 +400,46 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Load and display experience data
+async function loadExperience() {
+    try {
+        const response = await fetch('experience.json');
+        const data = await response.json();
+        displayExperience(data.experiences);
+    } catch (error) {
+        console.error('Error loading experience:', error);
+    }
+}
+
+function displayExperience(experiences) {
+    const container = document.getElementById('experience-container');
+    container.innerHTML = '';
+
+    experiences.forEach(exp => {
+        const experienceItem = document.createElement('div');
+        experienceItem.className = 'experience-item';
+        
+        const descriptionItems = exp.description.map(item => `<li>${item}</li>`).join('');
+        const skillTags = exp.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('');
+        
+        experienceItem.innerHTML = `
+            <div class="experience-date">${exp.date}</div>
+            <div class="experience-content">
+                <h3 class="experience-title">${exp.title}</h3>
+                <h4 class="experience-company">${exp.company}</h4>
+                <ul class="experience-description">
+                    ${descriptionItems}
+                </ul>
+                <div class="experience-skills">
+                    ${skillTags}
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(experienceItem);
+    });
+}
+
 // Initialize all functionality
 document.addEventListener('DOMContentLoaded', () => {
     animateSkillBars();
@@ -407,6 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScrolling();
     createMatrixRain();
     initSectionToggle();
+    loadExperience();
     
     // Add glitch effects after projects are loaded
     setTimeout(addGlitchEffects, 500);
