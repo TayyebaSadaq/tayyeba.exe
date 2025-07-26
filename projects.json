@@ -1,0 +1,49 @@
+[
+  {
+    "title": "ML Stock Price Predictor",
+    "description": "Advanced machine learning model using LSTM neural networks to predict stock prices. Features real-time data processing, technical indicators, and interactive visualizations with 85% accuracy rate.",
+    "technologies": ["Python", "TensorFlow", "Pandas", "NumPy", "Plotly", "Alpha Vantage API"],
+    "github": "https://github.com/yourusername/ml-stock-predictor",
+    "demo": "https://your-demo-site.herokuapp.com",
+    "category": "Machine Learning"
+  },
+  {
+    "title": "Gaming Analytics Dashboard",
+    "description": "Comprehensive gaming analytics platform that scrapes and analyzes gaming trends, player behavior, and market data. Built with interactive dashboards and real-time updates.",
+    "technologies": ["Python", "Streamlit", "BeautifulSoup", "Matplotlib", "Seaborn", "SQLite"],
+    "github": "https://github.com/yourusername/gaming-analytics",
+    "demo": "https://gaming-analytics.streamlit.app",
+    "category": "Data Analysis"
+  },
+  {
+    "title": "Book Recommendation Engine",
+    "description": "Intelligent book recommendation system using collaborative filtering and content-based algorithms. Includes sentiment analysis of reviews and personalized reading suggestions.",
+    "technologies": ["Python", "Scikit-learn", "NLP", "Flask", "NLTK", "Surprise"],
+    "github": "https://github.com/yourusername/book-recommender",
+    "demo": "https://book-recommender-app.herokuapp.com",
+    "category": "Recommendation System"
+  },
+  {
+    "title": "COVID-19 Data Visualization",
+    "description": "Interactive data visualization platform tracking COVID-19 trends with predictive modeling. Features geographic mapping, time series analysis, and vaccination tracking.",
+    "technologies": ["Python", "Plotly Dash", "Pandas", "Folium", "Prophet"],
+    "github": "https://github.com/yourusername/covid-dashboard",
+    "notebook": "https://github.com/yourusername/covid-analysis/blob/main/analysis.ipynb",
+    "category": "Data Visualization"
+  },
+  {
+    "title": "E-commerce Price Monitor",
+    "description": "Automated price monitoring system for e-commerce platforms with email alerts and trend analysis. Helps users track product prices and find the best deals.",
+    "technologies": ["Python", "Selenium", "BeautifulSoup", "MongoDB", "Celery"],
+    "github": "https://github.com/yourusername/price-monitor",
+    "category": "Web Scraping"
+  },
+  {
+    "title": "Tech News Sentiment Analyzer",
+    "description": "NLP-powered sentiment analysis tool for tech news articles. Classifies sentiment, extracts key topics, and provides trend insights for technology companies.",
+    "technologies": ["Python", "BERT", "Transformers", "Flask", "Twitter API", "NewsAPI"],
+    "github": "https://github.com/yourusername/tech-sentiment",
+    "demo": "https://tech-sentiment.herokuapp.com",
+    "category": "Natural Language Processing"
+  }
+]
