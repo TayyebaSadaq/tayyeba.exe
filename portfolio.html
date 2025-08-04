@@ -21,10 +21,6 @@
             <span class="control-btn maximize"></span>
         </div>
         <div class="terminal-title">tayyeba@portfolio:~$</div>
-        <div class="terminal-nav">
-            <a href="blog.html" class="terminal-nav-link">blog</a>
-            <a href="index.html" class="terminal-nav-link">home</a>
-        </div>
     </header>
 
     <!-- Navigation -->
@@ -62,6 +58,10 @@
                         <span class="stat-label">XP:</span>
                         <span class="stat-value">9999+</span>
                     </div>
+                </div>
+                <div class="hero-nav">
+                    <button class="nav-btn portfolio-btn active">portfolio.exe</button>
+                    <a href="blog.html" class="nav-btn blog-btn">blog →</a>
                 </div>
             </div>
         </section>
@@ -197,26 +197,40 @@
     <script src="script.js"></script>
 
     <style>
-        .terminal-nav {
+        .hero-nav {
             display: flex;
             gap: 1rem;
-            margin-left: auto;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
         
-        .terminal-nav-link {
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #00ff00;
+            background: transparent;
             color: #00ff00;
             text-decoration: none;
-            font-family: 'Courier Prime', monospace;
-            font-size: 0.9rem;
-            padding: 0.2rem 0.5rem;
-            border: 1px solid transparent;
+            border-radius: 6px;
             transition: all 0.3s ease;
+            font-family: 'Courier Prime', monospace;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-block;
         }
         
-        .terminal-nav-link:hover {
-            border-color: #00ff00;
-            background: rgba(0, 255, 0, 0.1);
+        .nav-btn:hover {
+            background: #00ff00;
+            color: #000;
+            transform: translateY(-2px);
         }
+        
+        .nav-btn.active {
+            background: #00ff00;
+            color: #000;
+        }
+        
+
         
         .terminal-header {
             display: flex;
