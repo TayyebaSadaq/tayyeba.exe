@@ -60,7 +60,7 @@ function animateSkillBars() {
 // Load projects from JSON configuration
 async function loadProjects() {
     try {
-        const response = await fetch('json-files/projects.json');
+        const response = await fetch('portfolio-files/projects.json');
         const projects = await response.json();
         const projectsContainer = document.getElementById('projects-container');
         
@@ -403,7 +403,7 @@ document.head.appendChild(style);
 // Load and display experience data
 async function loadExperience() {
     try {
-        const response = await fetch('json-files/experience.json');
+        const response = await fetch('portfolio-files/experience.json');
         const data = await response.json();
         displayExperience(data.experiences);
     } catch (error) {
