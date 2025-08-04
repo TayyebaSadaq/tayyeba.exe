@@ -1,42 +1,29 @@
-// Blog posts database with enhanced metadata
-const blogPosts = [
-    { 
-        file: 'blog-files/welcome.md', 
-        title: 'init: welcome.exe', 
-        date: '2024-01-15',
-        category: 'hot-takes',
-        excerpt: 'Welcome to my corner of the digital matrix! This isn\'t your typical blog - it\'s a terminal into my journey through code, data pipelines, and the occasional existential crisis.',
-        tags: ['web', 'nostalgia', 'retro', 'introduction']
-    },
-    { 
-        file: 'blog-files/data-pipeline-project.md', 
-        title: 'Building My First ETL Pipeline', 
-        date: '2024-01-12',
-        category: 'dev-diary',
-        excerpt: 'Documenting the process of building an automated data pipeline using Python and Apache Airflow.',
-        tags: ['python', 'etl', 'data-engineering', 'airflow', 'project']
-    },
-    { 
-        file: 'blog-files/pandas-tips.md', 
-        title: 'Essential Pandas Functions Every Data Analyst Should Know', 
-        date: '2024-01-08',
-        category: 'resources',
-        excerpt: 'A curated list of pandas functions that will supercharge your data analysis workflow.',
-        tags: ['pandas', 'python', 'data-analysis', 'tips', 'cheatsheet']
-    },
-    { 
-        file: 'blog-files/ai-hype-reality.md', 
-        title: 'AI Hype vs Reality: A Junior Developer\'s Take', 
-        date: '2024-01-05',
-        category: 'hot-takes',
-        excerpt: 'Cutting through the AI buzz to understand what\'s actually useful for everyday development work.',
-        tags: ['ai', 'machine-learning', 'opinion', 'development', 'reality-check']
-    }
-];
-
 // Global state
-let currentPosts = [...blogPosts];
+let blogPosts = [];
+let currentPosts = [];
 let currentCategory = 'all';
+
+// Load blog posts from JSON file
+async function loadBlogPosts() {
+    try {
+        const response = await fetch('blog-files/blog-posts.json');
+        if (!response.ok) {
+            throw new Error('Failed to load blog posts');
+        }
+        blogPosts = await response.json();
+        currentPosts = [...blogPosts];
+        renderBlogGrid();
+    } catch (error) {
+        console.error('Error loading blog posts:', error);
+        document.getElementById('blog-grid').innerHTML = `
+            <div class="error-message">
+                <h3>// error: could not load blog posts</h3>
+                <p>make sure blog-posts.json exists and is properly formatted</p>
+            </div>
+        `;
+        document.getElementById('post-count').textContent = 'error loading posts';
+    }
+}
 
 // Matrix background animation
 function initializeMatrix() {
@@ -82,12 +69,9 @@ function renderBlogGrid() {
     }
     
     const html = currentPosts.map(post => `
-        <div class="post-card" onclick="loadBlogPost('${post.file}', '${post.title}')">
-            <div class="post-header">
-                <div class="post-title">${post.title}</div>
-                <div class="post-category ${post.category}">${post.category}</div>
-            </div>
-            <div class="post-meta">${formatDate(post.date)} • ${getReadTime(post)} min read</div>
+        <div class="blog-post" onclick="loadBlogPost('${post.file}', '${post.title}')">
+            <div class="post-title">${post.title}</div>
+            <div class="post-date">${formatDate(post.date)} • ${getReadTime(post)} min read</div>
             <div class="post-excerpt">${post.excerpt}</div>
             <div class="post-tags">
                 ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
@@ -176,7 +160,7 @@ async function loadBlogPost(filename, title) {
 document.addEventListener('DOMContentLoaded', function() {
     initializeMatrix();
     showBlogList();
-    renderBlogGrid();
+    loadBlogPosts();
     
     // Search functionality
     document.getElementById('search').addEventListener('input', filterPosts);
