@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tayyeba.exe - dev.blog</title>
+    <link rel="stylesheet" href="blog.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <button class="btn close"></button>
+                <button class="btn minimize"></button>
+                <button class="btn maximize"></button>
+            </div>
+            <div class="terminal-title">tayyeba@dev:~/blog$ cat posts.db</div>
+        </div>
+        
+        <div class="content">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">&gt; tayyeba.dev_</h1>
+                    <p class="hero-subtitle">junior data analyst | python enthusiast | eternal learner</p>
+                    <div class="hero-description">
+                        <p>// documenting my journey through data pipelines, analytics projects, and the occasional debugging nightmare</p>
+                        <p>// expect real projects, useful resources, and hot takes from the trenches</p>
+                    </div>
+                    <div class="hero-nav">
+                        <a href="portfolio.html" class="nav-btn portfolio-btn">← portfolio</a>
+                        <button class="nav-btn blog-btn active" onclick="showBlogList()">blog.exe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="blog-list-container">
+                <div class="controls">
+                    <div class="search-container">
+                        <input type="text" class="search-input" id="search" placeholder="search posts... (title, content, tags)">
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-category="all">all</button>
+                        <button class="filter-tab" data-category="dev-diary">dev diary</button>
+                        <button class="filter-tab" data-category="resources">resources</button>
+                        <button class="filter-tab" data-category="hot-takes">hot takes</button>
+                    </div>
+                </div>
+                
+                <div class="post-count" id="post-count">Loading posts...</div>
+                <div class="blog-grid" id="blog-grid"></div>
+            </div>
+            
+            <div id="blog-content" class="blog-content">
+                <button class="back-btn" onclick="showBlogList()">← back to posts</button>
+                <div id="post-content"></div>
+            </div>
+            
+            <div class="footer">
+                <p>// end of file - powered by markdown & nostalgia</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="blog.js"></script>
+</body>
