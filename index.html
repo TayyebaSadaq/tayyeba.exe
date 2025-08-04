@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tayyeba.exe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff41;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+        }
+        
+        .logo {
+            font-size: 48px;
+            color: #00ff41;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            color: #8be9fd;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+        
+        .navigation {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-card {
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            width: 280px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .nav-card:hover {
+            border-color: #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-card:hover {
+            border-color: #ff79c6;
+            box-shadow: 0 0 20px rgba(255, 121, 198, 0.3);
+        }
+        
+        .blog-card:hover {
+            border-color: #8be9fd;
+            box-shadow: 0 0 20px rgba(139, 233, 253, 0.3);
+        }
+        
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .portfolio-card .card-icon {
+            color: #ff79c6;
+        }
+        
+        .blog-card .card-icon {
+            color: #8be9fd;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #00ff41;
+        }
+        
+        .card-description {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .card-tech {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .terminal-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #333;
+            font-size: 12px;
+            animation: blink 1s infinite;
+        }
+        
+        .version {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: #333;
+            font-size: 10px;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 255, 65, 0.5); }
+            to { text-shadow: 0 0 30px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.3); }
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 36px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .nav-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 28px;
+            }
+            
+            .nav-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="version">v1.0.0</div>
+    
+    <div class="container">
+        <div class="logo">tayyeba.exe</div>
+        <div class="tagline">junior data analyst | python enthusiast | eternal learner</div>
+        <div class="subtitle">
+            // welcome to my digital space<br>
+            // choose your adventure below
+        </div>
+        
+        <div class="navigation">
+            <a href="portfolio.html" class="nav-card portfolio-card">
+                <span class="card-icon">💼</span>
+                <div class="card-title">portfolio.exe</div>
+                <div class="card-description">
+                    explore my projects, technical skills, and professional journey through data analytics and development
+                </div>
+                <div class="card-tech">projects • skills • experience</div>
+            </a>
+            
+            <a href="blog.html" class="nav-card blog-card">
+                <span class="card-icon">📝</span>
+                <div class="card-title">blog.exe</div>
+                <div class="card-description">
+                    read about my dev journey, data pipeline adventures, useful resources, and hot takes from the trenches
+                </div>
+                <div class="card-tech">dev diary • resources • hot takes</div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="terminal-prompt">tayyeba@dev:~$ _</div>
+
+    <script>
+        // Matrix background animation
+        function initializeMatrix() {
+            const matrix = document.getElementById('matrix');
+            const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            for (let i = 0; i < 30; i++) {
+                const span = document.createElement('span');
+                span.style.position = 'absolute';
+                span.style.color = '#00ff41';
+                span.style.fontSize = '12px';
+                span.style.fontFamily = 'monospace';
+                span.style.left = Math.random() * 100 + '%';
+                span.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                span.style.animationName = 'fall';
+                span.style.animationIterationCount = 'infinite';
+                span.style.animationTimingFunction = 'linear';
+                span.style.animationDelay = Math.random() * 2 + 's';
+                span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                matrix.appendChild(span);
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '1' || e.key === 'p') {
+                window.location.href = 'portfolio.html';
+            } else if (e.key === '2' || e.key === 'b') {
+                window.location.href = 'blog.html';
+            }
+        });
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMatrix();
+        });
+        
+        // Add some interactive feedback
+        document.querySelectorAll('.nav-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
