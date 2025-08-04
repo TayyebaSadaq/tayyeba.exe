@@ -5,15 +5,15 @@ $ ./welcome --version
 welcome.exe v1.0.0 - initializing dev blog...
 ```
 
-Welcome to my corner of the digital matrix! This isn't your typical blog - it's a terminal into my journey through code, data pipelines, and the occasional existential crisis about whether AI will replace us all.
+Hi, I'm Tayyeba! 👋
+Welcome to my blog. As you can see from your way in it's a full digital playground, part portflio, part blog, part resource and brain dump.
+If you're interested in my content, work, projects or just want to connect, you're in the right place.
 
 ## sys.modules.loaded
-
-This blog tracks three main categories:
-
-- **dev diary** → Real projects, real problems, real solutions (and real failures)
-- **resources** → Code snippets, tools, and knowledge dumps that actually work
-- **hot takes** → Opinions on tech trends, industry nonsense, and lessons learned
+Now, the blog itself is split into 3 core modules:
+  1. Dev Diary -> behind the scenes of projects, experiments, waklthroughs etc
+  2. Resource Hub -> curated resources, tools and tips that actually helped me and my sanity
+  3. Hot Takes -> these are just my opinions on variety of topics (both tech and non-tech) that I feel like having a yap about
 
 ## current_stack.info()
 
@@ -21,8 +21,7 @@ This blog tracks three main categories:
 tech_stack = {
     "languages": ["Python", "SQL", "JavaScript", "R"],
     "focus_areas": ["data_engineering", "analytics", "web_dev"],
-    "current_obsession": "building_data_pipelines",
-    "coffee_dependency": "critical"
+    "current_obsession": "data analytics and visualisations"
 }
 ```
 
@@ -37,23 +36,19 @@ Started this blog because:
 ## what.next()
 
 Expect posts about:
-- ETL pipeline adventures and disasters
-- Data visualization experiments
-- Learning new frameworks (and breaking them)
-- Industry hot takes from a junior dev perspective
+- Experimental projects
+- work breakdowns (job applications, error codes everywhere, etc)
 - Resources that don't suck
 
 ## contact.json
 
 ```json
 {
-  "status": "always learning",
-  "dm_open": true,
-  "collaboration": "yes_please",
-  "mentorship": "seeking"
+  "EMAIL": "tayyeba.dev@gmail.com",
+  "INSTAGRAM": @tayyeba.codes,
+  "LINKEDIN": "https://www.linkedin.com/in/tayyeba-sadaq",
 }
 ```
 
 ---
-*// compiled with caffeine and determination*
-*// last updated: 2024.01.15*
+*// last updated: 04.08.2025*
