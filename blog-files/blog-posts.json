@@ -6,5 +6,13 @@
         "category": "",
         "excerpt": "Welcome to my corner of the digital matrix! This isn't your typical blog - it's a terminal into my journey through code, data pipelines, and the occasional existential crisis.",
         "tags": ["welcome", "intro", "who am i"]
+    },
+    {
+        "file": "blog-files/Tools I use.md",
+        "title": "init: Tools I use",
+        "date": "11.08.2025",
+        "category": "",
+        "excerpt": "A deep dive into the tools and technologies that power my workflow.",
+        "tags": ["tools", "workflow", "productivity"]
     }
 ]
