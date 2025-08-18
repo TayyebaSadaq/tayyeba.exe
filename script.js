@@ -1,9 +1,10 @@
 // Typing animation for hero section
 const typingTexts = [
-    "Python Developer & Data Scientist",
-    "Machine Learning Engineer",
-    "Data Analyst & Visualizer",
-    "Gaming Enthusiast & Tech Reader"
+    "Software Engineer & Data Scientist",
+    "Full-Stack Developer",
+    "Machine Learning Engineer", 
+    "Data Engineer & Analytics Expert",
+    "Python Developer & AI Enthusiast"
 ];
 
 let currentTextIndex = 0;
@@ -455,41 +456,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Console Easter Egg
 console.log(`
-██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗    ██╗      ██████╗  █████╗ ██████╗ ███████╗██████╗ 
-██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝    ██║     ██╔═══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗
-██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║       ██║     ██║   ██║███████║██║  ██║█████╗  ██║  ██║
-██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║       ██║     ██║   ██║██╔══██║██║  ██║██╔══╝  ██║  ██║
-██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║       ███████╗╚██████╔╝██║  ██║██████╔╝███████╗██████╔╝
-╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝       ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚═════╝ 
+██████╗  █████╗ ████████╗ █████╗     ███████╗███╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗███████╗██████╗ 
+██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗    ██╔════╝████╗  ██║██╔════╝ ██║████╗  ██║██╔════╝██╔════╝██╔══██╗
+██║  ██║███████║   ██║   ███████║    █████╗  ██╔██╗ ██║██║  ███╗██║██╔██╗ ██║█████╗  █████╗  ██████╔╝
+██║  ██║██╔══██║   ██║   ██╔══██║    ██╔══╝  ██║╚██╗██║██║   ██║██║██║╚██╗██║██╔══╝  ██╔══╝  ██║  ██║
+██████╔╝██║  ██║   ██║   ██║  ██║    ███████╗██║ ╚████║╚██████╔╝██║██║ ╚████║███████╗███████╗██║  ██║
+╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝╚═╝  ╚═╝
 
-Welcome to the Matrix! You found the console. 🎮
-Type 'help' for secret commands!
+Welcome to the Engineering Matrix! 🚀
+Building scalable solutions with data-driven insights.
+Type 'help' for development commands!
 `);
 
 // Console commands
 window.help = () => {
     console.log(`
-Available commands:
-- about(): Display personal info
-- skills(): List technical skills  
-- projects(): Show project count
-- konami(): Activate secret mode
-- matrix(): Toggle matrix effect
+Available development commands:
+- about(): Display engineering profile
+- techStack(): Show technical expertise
+- projects(): View software & data projects
+- architecture(): Display system design approach
+- deploy(): Simulate deployment process
 - toggleAll(): Expand/collapse all sections
 `);
 };
 
 window.about = () => {
-    console.log("Tayyeba.exe - Python Developer & Data Scientist who loves gaming, tech, and books!");
+    console.log("Software Engineer & Data Scientist | Building scalable applications and ML pipelines | Full-stack development meets data intelligence");
 };
 
-window.skills = () => {
-    console.log("Python | Data Science | Machine Learning | Gaming | Reading | Tech Innovation");
+window.techStack = () => {
+    console.log("Backend: Python, SQL, APIs | Frontend: JavaScript, HTML/CSS | Data: ML, Analytics, Visualization | Cloud: Deployment & Scaling");
 };
 
-window.projects = () => {
-    const projectCount = document.querySelectorAll('.project-card').length;
-    console.log(`Currently showcasing ${projectCount} awesome projects!`);
+window.architecture = () => {
+    console.log("🏗️ System Design: Microservices | Database optimization | RESTful APIs | Data pipelines | ML model deployment");
+};
+
+window.deploy = () => {
+    console.log("🚀 Deploying to production...");
+    setTimeout(() => console.log("✅ Deployment successful! Application is live."), 1000);
 };
 
 window.konami = () => {
