@@ -215,6 +215,31 @@ p {
 }
 
 /* ═══════════════════════════════════════════════════════════
+ *  PROFILE IMAGE - Rounded avatar
+ * ═══════════════════════════════════════════════════════════ */
+.pfp {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--soft-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Align pfp left of heading on About */
+.heading-with-pfp {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.heading-with-pfp .pfp {
+  width: 100px;
+  height: 100px;
+}
+
+/* ═══════════════════════════════════════════════════════════
  *  CARDS - Classic Box Layout
  * ═══════════════════════════════════════════════════════════ */
 .cards-container {
@@ -554,6 +579,19 @@ footer .heart {
   
   .hero h1 {
     font-size: 2.2rem;
+  }
+  .pfp {
+    width: 120px;
+    height: 120px;
+  }
+  .heading-with-pfp {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .heading-with-pfp .pfp {
+    width: 100px;
+    height: 100px;
   }
   
   .cards-container {
