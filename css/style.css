@@ -414,7 +414,7 @@ footer .heart {
 }
 
 /* ═══════════════════════════════════════════════════════════
- *  TIMELINE STYLES - For career/experience timeline
+ *  TIMELINE STYLES - Zig-Zag Timeline Layout
  * ═══════════════════════════════════════════════════════════ */
 
 /* Timeline container */
@@ -423,57 +423,112 @@ footer .heart {
   flex-direction: column;
   gap: 0;
   position: relative;
-  padding: 2rem 0;
+  padding: 3rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* Vertical line connecting timeline items */
+/* Vertical line in the center */
 #career-container::before {
   content: '';
   position: absolute;
-  left: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: var(--soft-gold);
+  width: 3px;
+  background: linear-gradient(to bottom, 
+    var(--soft-gold), 
+    var(--primary-brown), 
+    var(--soft-gold));
+  box-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
 }
 
 /* Individual timeline item */
 .timeline-item {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
   position: relative;
-  padding-left: 60px;
+  margin-bottom: 4rem;
+  width: 100%;
 }
 
-/* Timeline marker (dot) */
+/* Left-aligned items (even) */
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+  padding-right: calc(50% + 40px);
+}
+
+/* Right-aligned items (odd) */
+.timeline-item:nth-child(odd) {
+  justify-content: flex-end;
+  padding-left: calc(50% + 40px);
+}
+
+/* Timeline marker (dot) - centered on line */
 .timeline-marker {
   position: absolute;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  background: var(--soft-gold);
-  border: 4px solid var(--cream);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--soft-gold), var(--primary-brown));
+  border: 5px solid var(--cream);
   border-radius: 50%;
   top: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(139, 111, 71, 0.3);
+  z-index: 10;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+  transform: translateX(-50%) scale(1.15);
+  box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
 }
 
 /* Timeline content - the card/box with info */
 .timeline-content {
   flex: 1;
   background: var(--warm-white);
-  padding: 1.5rem;
-  border-left: 4px solid var(--soft-gold);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid var(--warm-beige);
+}
+
+/* Arrow pointing to center line */
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid var(--warm-white);
+  filter: drop-shadow(2px 0 2px rgba(0, 0, 0, 0.05));
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid var(--warm-white);
+  filter: drop-shadow(-2px 0 2px rgba(0, 0, 0, 0.05));
 }
 
 .timeline-content:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  border-color: var(--soft-gold);
 }
 
 /* Timeline content headings */
@@ -516,8 +571,8 @@ footer .heart {
 /* Description text */
 .timeline-content .description {
   color: var(--text-dark);
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
 /* Skills tags */
@@ -537,6 +592,48 @@ footer .heart {
   font-size: 0.85rem;
   border: 1px solid var(--soft-gold);
   font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: var(--soft-gold);
+  color: var(--warm-white);
+  transform: translateY(-2px);
+}
+
+/* Responsive timeline for smaller screens */
+@media (max-width: 992px) {
+  /* Stack timeline vertically on tablets and mobile */
+  #career-container::before {
+    left: 30px;
+    transform: none;
+  }
+  
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+    padding-left: 80px;
+    padding-right: 0;
+  }
+  
+  .timeline-marker {
+    left: 5px;
+    transform: none;
+  }
+  
+  .timeline-item:hover .timeline-marker {
+    transform: scale(1.15);
+  }
+  
+  /* Remove arrows on mobile */
+  .timeline-item:nth-child(even) .timeline-content::after,
+  .timeline-item:nth-child(odd) .timeline-content::after {
+    display: none;
+  }
+  
+  .timeline-content {
+    border-left: 4px solid var(--soft-gold);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════
