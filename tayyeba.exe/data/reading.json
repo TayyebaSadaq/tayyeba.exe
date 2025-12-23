@@ -1,0 +1,30 @@
+{
+  "currentlyReading": {
+    "title": "Harry Potter Full Cast Audiobook Series",
+    "author": "J.K. Rowling (Narrated by Full Cast)",
+    "cover": "",
+    "thoughts": "Immersing myself in the magical world of Harry Potter with the wonderful full cast audiobook production. A perfect blend of storytelling and voice acting!"
+  },
+  "recentFavorites": [
+    {
+      "title": "Butcher and Blackbird",
+      "author": "Brynne Weaver",
+      "rating": 5,
+      "review": "Hilarious and gory with the right amount of romance. A dark fantasy romp that kept me hooked!"
+    },
+    {
+      "title": "Lights Out",
+      "author": "Navessa Allen",
+      "rating": 5,
+      "review": "Funny and engaging, a delightful read that kept me entertained throughout."
+    },
+    {
+      "title": "King of Wrath",
+      "author": "Ana Huang",
+      "rating": 5,
+      "review": "An addictive enemies-to-lovers and marriage of convenience with complex characters and an engaging storyline. Absolutely captivating!"
+    }
+  ],
+  "readingGoal": 10,
+  "booksReadThisYear": 1
+}

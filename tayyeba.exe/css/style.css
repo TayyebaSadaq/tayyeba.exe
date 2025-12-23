@@ -1,0 +1,588 @@
+/*
+ * ═══════════════════════════════════════════════════════════
+ *  COSY RETRO/VINTAGE PERSONAL WEBSITE STYLES
+ *  Warm earth tones, classic vibes, vintage comfort ✨
+ * ═══════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════
+ *  IMPORTS & ROOT VARIABLES
+ * ═══════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Main color palette - warm earth tones, vintage vibes */
+  --primary-brown: #8B6F47;
+  --light-brown: #A0826D;
+  --cream: #F5F1E8;
+  --warm-beige: #E8DCC8;
+  --soft-gold: #D4A574;
+  --dark-brown: #5C4A3D;
+  --accent-rust: #A85A3A;
+  --text-dark: #3D2F25;
+  --text-muted: #6B5D52;
+  --warm-white: #FFFEF9;
+  
+  /* Fonts - classic and readable */
+  --font-main: 'Poppins', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Crimson Text', serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+  
+  /* Border radius - more subtle, less modern */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  
+  /* Shadows - softer, more subtle */
+  --shadow-sm: 0 2px 5px rgba(61, 47, 37, 0.08);
+  --shadow-md: 0 4px 10px rgba(61, 47, 37, 0.12);
+  --shadow-lg: 0 8px 15px rgba(61, 47, 37, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  GLOBAL RESET & BASE STYLES
+ * ═══════════════════════════════════════════════════════════ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--cream);
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(176, 130, 109, 0.03) 2px,
+      rgba(176, 130, 109, 0.03) 4px
+    );
+  color: var(--text-dark);
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  NAVIGATION BAR - Vintage Header
+ * ═══════════════════════════════════════════════════════════ */
+nav {
+  background-color: var(--warm-beige);
+  border-bottom: 3px solid var(--primary-brown);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav .logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark-brown);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  letter-spacing: 1px;
+}
+
+nav .logo:hover {
+  opacity: 0.8;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-family: var(--font-main);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  border-bottom: 2px solid var(--primary-brown);
+  color: var(--accent-rust);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  MAIN CONTAINER & SECTIONS
+ * ═══════════════════════════════════════════════════════════ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.section {
+  background-color: var(--warm-white);
+  border: 1px solid var(--warm-beige);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  HEADINGS - Classic & Elegant
+ * ═══════════════════════════════════════════════════════════ */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--dark-brown);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-brown);
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--soft-gold);
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--accent-rust);
+}
+
+p {
+  font-family: var(--font-body);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-dark);
+  line-height: 1.9;
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  HERO SECTION - Homepage Welcome
+ * ═══════════════════════════════════════════════════════════ */
+.hero {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: var(--warm-beige);
+  border: 1px solid var(--soft-gold);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+  animation: fadeIn 1s ease;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease 0.3s both;
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  CARDS - Classic Box Layout
+ * ═══════════════════════════════════════════════════════════ */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.card {
+  background-color: var(--warm-white);
+  border: 1px solid var(--warm-beige);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--soft-gold);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--soft-gold);
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: var(--spacing-sm);
+  background-color: var(--warm-beige);
+  border: 1px solid var(--warm-beige);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--accent-rust);
+  font-family: var(--font-heading);
+}
+
+.card p {
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+}
+
+.card .meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-xs);
+  font-style: italic;
+  font-family: var(--font-main);
+}
+
+.card-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-brown);
+  color: var(--warm-white);
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: var(--font-main);
+}
+
+.card-link:hover {
+  background-color: var(--accent-rust);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  SOCIAL LINKS - Vintage Buttons
+ * ═══════════════════════════════════════════════════════════ */
+.social-links {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.6rem 1.2rem;
+  background-color: var(--warm-white);
+  color: var(--primary-brown);
+  text-decoration: none;
+  border: 2px solid var(--primary-brown);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
+  font-family: var(--font-main);
+}
+
+.social-btn:hover {
+  background-color: var(--primary-brown);
+  color: var(--warm-white);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  HOBBIES/BLOG SECTION - Personal & Warm
+ * ═══════════════════════════════════════════════════════════ */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.hobby-item {
+  background-color: var(--warm-beige);
+  padding: var(--spacing-md);
+  border: 1px solid var(--soft-gold);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.hobby-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-brown);
+}
+
+.hobby-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-heading);
+}
+
+.hobby-item img {
+  width: 100%;
+  margin-top: var(--spacing-sm);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--soft-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  FOOTER - Classic & Simple
+ * ═══════════════════════════════════════════════════════════ */
+footer {
+  background-color: var(--warm-beige);
+  padding: var(--spacing-md);
+  text-align: center;
+  border-top: 3px solid var(--primary-brown);
+  margin-top: var(--spacing-xl);
+}
+
+footer p {
+  color: var(--text-dark);
+  margin: 0;
+  font-size: 0.95rem;
+  font-family: var(--font-main);
+}
+
+footer .heart {
+  color: var(--accent-rust);
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  TIMELINE STYLES - For career/experience timeline
+ * ═══════════════════════════════════════════════════════════ */
+
+/* Timeline container */
+#career-container {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Vertical line connecting timeline items */
+#career-container::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--soft-gold);
+}
+
+/* Individual timeline item */
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-left: 60px;
+}
+
+/* Timeline marker (dot) */
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--soft-gold);
+  border: 4px solid var(--cream);
+  border-radius: 50%;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+/* Timeline content - the card/box with info */
+.timeline-content {
+  flex: 1;
+  background: var(--warm-white);
+  padding: 1.5rem;
+  border-left: 4px solid var(--soft-gold);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Timeline content headings */
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--primary-brown);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+}
+
+/* Company/organization info */
+.timeline-content .company {
+  color: var(--accent-rust);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-main);
+}
+
+/* Meta information (dates, duration) */
+.timeline-content .meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+
+.timeline-content .meta .duration {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Location info */
+.timeline-content .location {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Description text */
+.timeline-content .description {
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+/* Skills tags */
+.timeline-content .skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  background: var(--warm-beige);
+  color: var(--primary-brown);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: 1px solid var(--soft-gold);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  ANIMATIONS - Smooth & Subtle
+ * ═══════════════════════════════════════════════════════════ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  RESPONSIVE DESIGN - Mobile friendly!
+ * ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+  }
+  
+  nav .nav-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  nav ul {
+    justify-content: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .hobby-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+ *  UTILITY CLASSES
+ * ═══════════════════════════════════════════════════════════ */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+
+.loading {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-light);
+  font-style: italic;
+}
